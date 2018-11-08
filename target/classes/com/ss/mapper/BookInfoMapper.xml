@@ -16,7 +16,9 @@
 		<result property="bookId" column="book_id" />
 		<result property="detail" column="detail" />
 		<result property="packageStyle" column="packsge_style" />
+		
 		<association property="publish" column="publish_id" select="com.ss.mapper.PublishMapper.getPublishByPublishId" />
+		<collection property="printInfo" ofType="printInfo" column="book_info_id" select="com.ss.mapper.PrintInfoMapper.getPrintInfoByBookInfoId"/>
 	</resultMap>
 
 	<sql id="bookInfoColumns">book_info_id,book_id,detail,package_style,publish_id</sql>

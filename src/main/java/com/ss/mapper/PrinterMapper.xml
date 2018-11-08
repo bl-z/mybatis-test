@@ -7,14 +7,14 @@
 	<select id="getPrinterByPrinterId" resultMap="PrinterResultMap">
 		select
 		<include refid="PrinterColumns"></include>
-		from t_publish
-		where publish_id = #{publishId}
+		from t_printer
+		where printer_id = #{printerId}
 	</select>
 
 	<resultMap type="Printer" id="PrinterResultMap" autoMapping="true">
 		</resultMap>
 
-	<sql id="PrinterColumns">publish_id,publish_name,publish_date,publish_num</sql>
+	<sql id="PrinterColumns">printer_id,printer_name,printer_address,printer_phone,printerzip,printer_legal_person,contact_person,contact_cell_phone,fax_num</sql>
 </mapper>
 
 
