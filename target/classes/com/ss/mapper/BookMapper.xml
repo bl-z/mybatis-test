@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ss.mapper.BookMapper">
+
+	<select id="getBookByBookId" resultMap="bookResultMap">
+		select
+		<include refid="bookColumns"></include>
+		from t_book
+		where book_id = ${bookId}
+	</select>
+
+	<resultMap type="book" id="bookResultMap">
+		<id property="primaryId" column="primary_id" />
+		<result property="bookId" column="book_id" />
+		<result property="bookName" column="book_name" />
+		<result property="bookAuthor" column="book_author" />
+		<result property="bookPrice" column="book_price" />
+		<result property="bookKind" column="book_kind" />
+		<result property="totalStore" column="total_store" />
+		<result property="totalSold" column="total_sold" />
+		<result property="bookPic" column="book_pic" />
+		<result property="bookProfile" column="book_profile" />
+		<result property="bookStatus" column="book_status" />
+<!-- 		<association property="bookInfo" column="book_id" select="com.ss.mapper.BookInfoMapper.getBookInfoByBookId">
+			<id />
+			<result />
+		</association> -->
+	</resultMap>
+
+
+
+	<sql id="bookColumns">primary_id,book_id,book_name,book_author,book_price,book_kind,total_store,total_sold,book_pic,book_profile,book_status
+	</sql>
+	<sql id="bookValues">${primaryId},${bookId},${bookName},${bookAuthor},${bookPrice},${bookKind},${totalStore},${totalSold},${bookPic},${bookProfile},${bookStatus}
+	</sql>
+	<sql id="batchValues">(${book.bookId},${book.bookName},${book.bookAuthor},${book.bookPrice},${book.bookKind},${book.totalStore},${book.totalSold},${book.bookPic},${book.bookProfile},${book.bookStatus})
+	</sql>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
