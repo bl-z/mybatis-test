@@ -16,8 +16,7 @@
 		<result property="publishName" column="publish_name" />
 		<result property="publishDate" column="publish_date" />
 		<result property="publishNum" column="publish_num" />
-		<!-- <association property="bookInfo" column="book_id" select="com.ss.mapper.BookInfoMapper.getBookInfoByBookId"/> -->
-	</resultMap>
+		</resultMap>
 
 	<sql id="publishColumns">publish_id,publish_name,publish_date,publish_num</sql>
 </mapper>

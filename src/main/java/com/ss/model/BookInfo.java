@@ -9,7 +9,7 @@ public class BookInfo {
 	private String detail;
 	private String packageStyle;
 	private Publish publish;
-	private List<Print> print;
+	private List<PrintInfo> printInfo;
 	private List<String> imges;
 	
 	public long getBookInfoId() {
@@ -42,11 +42,12 @@ public class BookInfo {
 	public void setPublish(Publish publish) {
 		this.publish = publish;
 	}
-	public List<Print> getPrint() {
-		return print;
+	
+	public List<PrintInfo> getPrintInfo() {
+		return printInfo;
 	}
-	public void setPrint(List<Print> print) {
-		this.print = print;
+	public void setPrintInfo(List<PrintInfo> printInfo) {
+		this.printInfo = printInfo;
 	}
 	public List<String> getImges() {
 		return imges;
@@ -57,16 +58,16 @@ public class BookInfo {
 	@Override
 	public String toString() {
 		return "BookInfo [bookInfoId=" + bookInfoId + ", bookId=" + bookId + ", detail=" + detail + ", packageStyle="
-				+ packageStyle + ", publish=" + publish + ", print=" + print + ", imges=" + imges + "]";
+				+ packageStyle + ", publish=" + publish + ", printInfo=" + printInfo + ", imges=" + imges + "]";
 	}
 	public BookInfo(long bookInfoId, long bookId, String detail, String packageStyle, Publish publish,
-			List<Print> print, List<String> imges) {
+			List<PrintInfo> printInfo, List<String> imges) {
 		this.bookInfoId = bookInfoId;
 		this.bookId = bookId;
 		this.detail = detail;
 		this.packageStyle = packageStyle;
 		this.publish = publish;
-		this.print = print;
+		this.printInfo = printInfo;
 		this.imges = imges;
 	}
 	public BookInfo() {
