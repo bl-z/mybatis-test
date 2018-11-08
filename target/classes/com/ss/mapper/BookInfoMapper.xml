@@ -3,19 +3,23 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ss.mapper.BookInfoMapper">
-	
-	<select id="getBookByBookId" resultMap="bookResultMap"></select>
-	
-	<resultMap type="book" id="bookResultMap">
+
+	<select id="getBookInfoByBookId" resultMap="bookInfoResultMap">
+		select
+		<include refid="bookInfoColumns"></include>
+		from t_book_info
+		where book_id = #{bookId}
+	</select>
+
+	<resultMap type="bookInfo" id="bookInfoResultMap">
 		<id property="bookInfoId" column="book_info_id" />
 		<result property="bookId" column="book_id" />
 		<result property="detail" column="detail" />
 		<result property="packageStyle" column="packsge_style" />
-		<association property="publish" column="publish_id" select="">
-		</association>
+		<association property="publish" column="publish_id" select="com.ss.mapper.PublishMapper.getPublishByPublishId" />
 	</resultMap>
 
 	<sql id="bookInfoColumns">book_info_id,book_id,detail,package_style,publish_id</sql>
-	<sql id="bookValues">#{bookInfoId},#{bookId},#{detail},#{packageStyle},#{publish}
+	<sql id="bookInfoValues">#{bookInfoId},#{bookId},#{detail},#{packageStyle},#{publish}
 	</sql>
 </mapper> 

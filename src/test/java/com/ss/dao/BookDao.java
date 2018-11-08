@@ -14,8 +14,13 @@ public class BookDao {
 		SqlSession session = SqlSessionFactorySington.getInstance().getSqlSession(true);
 		BookMapper bookMapper = session.getMapper(BookMapper.class);
 		Book book = bookMapper.getBookByBookId(123l);
+		
+		System.out.println();
 		System.out.println(book);
+		System.out.println();
+		
 		session.close();
+		
 	}
 	
 
